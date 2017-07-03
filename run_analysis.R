@@ -37,8 +37,7 @@ merged_data_mean_std <- merged_data[,c(TRUE,TRUE,mean_std_l)] # select columns: 
 merged_data_mean_std_final <- merge(activity,merged_data_mean_std, by="activityId", all.y=TRUE) # add the activity name to the data set
 
 
-## Creating an independent tidy data set with the average 
-## of each variable for each activity and each subject.
+## Creating an independent tidy data set with the average of each variable for each activity and each subject.
 average_tidy_dataset <- aggregate(. ~subjectId + activityType, merged_data_mean_std_final, mean) # Compute the aggregated mean for subjectId and activityType
 average_tidy_dataset <- average_tidy_dataset[order(average_tidy_dataset$activityId, average_tidy_dataset$subjectId),] # Order by activityId and subjectId
 
